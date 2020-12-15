@@ -8,7 +8,7 @@ if __name__ == '__main__':
     ctrl = Driver(t_prof=TrainingProfile(name="SD-CFR_LEDUC_EXAMPLE",
                                          nn_type="feedforward",
                                          max_buffer_size_adv=3e6,
-                                         eval_agent_export_freq=20,  # export API to play against the agent
+                                         eval_agent_export_freq=5,  # export API to play against the agent
                                          n_traversals_per_iter=1500,
                                          n_batches_adv_training=750,
                                          n_batches_avrg_training=2000,
