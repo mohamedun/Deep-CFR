@@ -34,7 +34,8 @@ if __name__ == '__main__':
                                          ),
 
                                          DISTRIBUTED=False,
-                                         rl_br_args=RLBRArgs(rlbr_bet_set=bet_sets.POT_ONLY)
+                                         rl_br_args=RLBRArgs(rlbr_bet_set=bet_sets.POT_ONLY,
+                                                             n_iterations = 1000)
                                          ),
                   eval_methods={
                       "rlbr": 3,
