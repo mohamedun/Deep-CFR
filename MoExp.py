@@ -23,7 +23,7 @@ if __name__ == '__main__':
                                          use_pre_layers_adv=False,
                                          use_pre_layers_avrg=False,
 
-                                         game_cls=LimitHoldem,
+                                         game_cls=StandardLeduc,
 
                                          # You can specify one or both modes. Choosing both is useful to compare them.
                                          eval_modes_of_algo=(
@@ -34,7 +34,7 @@ if __name__ == '__main__':
                                          DISTRIBUTED=False,
                                          ),
                   eval_methods={
-                      "br": 3,
+                      "lbr": 3,
                   },
                   n_iterations=None)
     ctrl.run()
