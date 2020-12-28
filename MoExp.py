@@ -37,7 +37,7 @@ if __name__ == '__main__':
                                          rl_br_args=RLBRArgs(rlbr_bet_set=bet_sets.POT_ONLY)
                                          ),
                   eval_methods={
-                      "rl-br": 3,
+                      "rlbr": 3,
                   },
                   n_iterations=None)
     ctrl.run()
