@@ -1,5 +1,6 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
 from PokerRL.game.games import Flop5Holdem
+from PokerRL.game.games import LimitHoldem
 
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 from DeepCFR.TrainingProfile import TrainingProfile
@@ -58,7 +59,7 @@ if __name__ == '__main__':
                                          ),
 
                                          log_verbose=True,
-                                         game_cls=Flop5Holdem,
+                                         game_cls=LimitHoldem,
 
                                          # enables simplified obs. Default works also for 3+ players
                                          use_simplified_headsup_obs=True,
