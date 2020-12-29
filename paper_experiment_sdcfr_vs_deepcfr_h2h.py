@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
                                          DISTRIBUTED=True,
                                          CLUSTER=False,
-                                         n_learner_actor_workers=20,  # 20 workers
+                                         n_learner_actor_workers=10,  # 20 workers
 
                                          # regulate exports
                                          export_each_net=False,
