@@ -1,5 +1,5 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
-from PokerRl.eval.lbr.LBRArgs import LBRArgs
+from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
 from PokerRL.game.games import Flop5Holdem
 from PokerRL.game.games import LimitHoldem
