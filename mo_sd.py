@@ -1,4 +1,6 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
+from PokerRl.eval.lbr.LBRArgs import LBRArgs
+from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
 from PokerRL.game.games import Flop5Holdem
 from PokerRL.game.games import LimitHoldem
 
@@ -63,13 +65,13 @@ if __name__ == '__main__':
 
                                          # enables simplified obs. Default works also for 3+ players
                                          use_simplified_headsup_obs=True,
-
-                                         h2h_args=H2HArgs(
-                                             n_hands=15000,  # this is per seat; so in total 3M hands per eval
-                                         ),
+                                         lbr_args=LBRArgs(n_lbr_hands_per_seat=30000, lbr_check_to_round=None,
+                                                          n_parallel_lbr_workers=3,use_gpu_for_batch_eval=True,
+                                                          DISTRIBUTED=True) # recommended to set to Poker.TURN for 4-round games.
+                                         rl_br_args=RLBRArgs(),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
-                  eval_methods={"h2h": 15},
+                  eval_methods={"lbr": 3},
 
                   # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
                   # This repo implements alternating iters as a single iter, which is why this says 150.
