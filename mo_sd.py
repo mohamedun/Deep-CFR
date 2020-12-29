@@ -1,3 +1,4 @@
+# Low Resource, Limit Holdem, RLBR Testing, working version.
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
 from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
