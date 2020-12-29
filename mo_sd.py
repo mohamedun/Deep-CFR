@@ -1,9 +1,11 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
 from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
+
 from PokerRL.game.games import Flop5Holdem
 from PokerRL.game.games import LimitHoldem
 
+from PokerRL.game.bet_sets import POT_ONLY
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
@@ -68,7 +70,7 @@ if __name__ == '__main__':
                                          lbr_args=LBRArgs(n_lbr_hands_per_seat=30000, lbr_check_to_round=None,
                                                           n_parallel_lbr_workers=3,use_gpu_for_batch_eval=True,
                                                           DISTRIBUTED=True), # recommended to set to Poker.TURN for 4-round games.
-                                         rl_br_args=RLBRArgs(),
+                                         rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
                   eval_methods={"lbr": 3},
