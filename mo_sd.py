@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
                                          DISTRIBUTED=True,
                                          CLUSTER=False,
-                                         n_learner_actor_workers=10,  # 20 workers
+                                         n_learner_actor_workers=5,  # 20 workers
 
                                          # regulate exports
                                          export_each_net=False,
@@ -25,8 +25,8 @@ if __name__ == '__main__':
                                          eval_agent_export_freq=1,  # produces around 15GB over 150 iterations!
 
                                          n_actions_traverser_samples=3,  # = external sampling in FHP
-                                         n_traversals_per_iter=15000,
-                                         n_batches_adv_training=4000,
+                                         n_traversals_per_iter=100,
+                                         n_batches_adv_training=100,
                                          mini_batch_size_adv=512,  # *20=10240
                                          init_adv_model="random",
 
@@ -35,12 +35,12 @@ if __name__ == '__main__':
                                          n_merge_and_table_layer_units_adv=64,
                                          n_units_final_adv=64,
 
-                                         max_buffer_size_adv=2e6,  # *20 LAs = 40M
+                                         max_buffer_size_adv=5e4,  # *20 LAs = 40M
                                          lr_adv=0.001,
                                          lr_patience_adv=99999999,  # No lr decay
 
-                                         n_batches_avrg_training=20000,
-                                         mini_batch_size_avrg=1024,  # *20=20480
+                                         n_batches_avrg_training=100,
+                                         mini_batch_size_avrg=512,  # *20=20480
                                          init_avrg_model="random",
 
                                          use_pre_layers_avrg=True,
@@ -48,7 +48,7 @@ if __name__ == '__main__':
                                          n_merge_and_table_layer_units_avrg=64,
                                          n_units_final_avrg=64,
 
-                                         max_buffer_size_avrg=2e6,
+                                         max_buffer_size_avrg=5e4,
                                          lr_avrg=0.001,
                                          lr_patience_avrg=99999999,  # No lr decay
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                                          use_simplified_headsup_obs=True,
 
                                          h2h_args=H2HArgs(
-                                             n_hands=1500000,  # this is per seat; so in total 3M hands per eval
+                                             n_hands=15000,  # this is per seat; so in total 3M hands per eval
                                          ),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
