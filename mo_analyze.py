@@ -1,6 +1,6 @@
 # Copyright (c) 2019 Eric Steinberger
 
-
+import pdb
 import time
 from os.path import dirname, abspath
 
@@ -53,5 +53,5 @@ if __name__ == '__main__':
                 obs, rew, done, info = env.step(a)
                 eval_agent_sdcfr.notify_of_action(p_id_acted=p_id_acting, action_he_did=a)
                 eval_agent_dcfr.notify_of_action(p_id_acted=p_id_acting, action_he_did=a)
-                breakpoint()
+                pdb.set_trace()
 
