@@ -222,7 +222,7 @@ class EvalAgentDeepCFR(_EvalAgentBase):
                 a_probs_each_model *= np.expand_dims(self._get_reach_for_each_model(
                     p_id_acting=p_id_acting,
                     range_idx=range_idx,
-                ), axis=2)
+                ), axis=(2,0))
 
                 # """"""""""""""""""""""
                 # Normalize
