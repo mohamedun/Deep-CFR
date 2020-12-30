@@ -17,7 +17,7 @@ if __name__ == '__main__':
     
     Uses 24 cores.
     """
-    ctrl = Driver(t_prof=TrainingProfile(name="EXPERIMENT_SD-CFR_vs_Deep-CFR_FHP",
+    ctrl = Driver(t_prof=TrainingProfile(name="MO_LowResource_LHL_RLBR",
 
                                          nn_type="feedforward",  # We also support RNNs, but the paper uses FF
 
