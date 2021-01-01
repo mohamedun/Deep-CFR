@@ -11,7 +11,7 @@ from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
 
 N_DECK = 52
-N_HOLE = N_DECK * (N_DECK-1) // 2
+N_HOLE = 169 # 13 * 12 + 13
 
 def hand2rep(hand):
     card1_rank = hand[0][0]
