@@ -13,7 +13,7 @@ path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_
 #path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
 #path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_SINGLE.pkl"
 
-N_HOLE = 13 * 4 * 13 * 4 / 2
+N_HOLE = 13 * 4 * 13 * 4 // 2
 
 if __name__ == '__main__':
     #Loading EvalAgents and checking if hey have same experiment name
