@@ -45,10 +45,14 @@ print(f"Computed {N_HOLE} possible hands in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
 
-#store data
+#----------------------------store data for p0
 import pickle
 f = open('p0_strat.pkl', 'ab')
 pickle.dump(hands, f)
 f.close()
+
+#----------------------- Generate Image for p0
+import plotting
+plotting.np2img(hands)
 
 pdb.set_trace()
