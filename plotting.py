@@ -7,7 +7,7 @@ import pickle
 # f = open('p0_strat.pkl', 'rb')
 # raw_data = pickle.load(f)
 # f.close()
-def np2img(raw_data):
+def np2img(raw_data, filename):
     strat = np.zeros((13,13,3))
     for datum in raw_data.keys():
         hrank, lrank, suited = datum
@@ -33,4 +33,4 @@ def np2img(raw_data):
 
     ax.set_title("Action Probability 012->RBG")
     fig.tight_layout()
-    plt.savefig('p0_strat_img.png')
+    plt.savefig(filename)
