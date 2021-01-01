@@ -40,11 +40,11 @@ while len(hands) < N_HOLE:
     hole_hand = hand2rep(env.seats[0].hand)
     if hole_hand not in hands:
         hands[hole_hand] = eval_agent_dcfr.get_a_probs()
-
+'''''
 print(f"Computed {N_HOLE} possible hands in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
-
+'''''
 #----------------------------store data for p0
 import pickle
 f = open('p0_strat.pkl', 'ab')
