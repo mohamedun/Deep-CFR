@@ -23,27 +23,29 @@ def hand2rep(hand):
     low_rank = min(card1_rank, card2_rank)
     return (high_rank, low_rank, suited)
 
-if __name__ == '__main__':
-    #Loading EvalAgents and checking if hey have same experiment name
-    eval_agent_dcfr = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_dcfr_eval_agent)
+#--------------- Generate p0 strat -------------------------
 
-    #get an env bldr from the agent and create an env
-    env_bldr = eval_agent_dcfr.env_bldr
-    env = env_bldr.get_new_env(is_evaluating=False)
+#Loading EvalAgents and checking if hey have same experiment name
+eval_agent_dcfr = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_dcfr_eval_agent)
 
-    start_time = time.time()
-    hands = {}
-    while len(hands) < N_HOLE:
-        obs, rew, done, info = env.reset()
-        eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
-        hole_hand = hand2rep(env.seats[0].hand)
-        if hole_hand not in hands:
-            hands[hole_hand] = eval_agent_dcfr.get_a_probs()
+#get an env bldr from the agent and create an env
+env_bldr = eval_agent_dcfr.env_bldr
+env = env_bldr.get_new_env(is_evaluating=False)
+
+start_time = time.time()
+hands = {}
+while len(hands) < N_HOLE:
+    obs, rew, done, info = env.reset()
+    eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
+    hole_hand = hand2rep(env.seats[0].hand)
+    if hole_hand not in hands:
+        hands[hole_hand] = eval_agent_dcfr.get_a_probs()
 
 print(f"Computed {N_HOLE} possible hands in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
 
+#store data
 import pickle
 f = open('p0_strat.pkl', 'ab')
 pickle.dump(hands, f)
