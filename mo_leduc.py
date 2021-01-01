@@ -9,7 +9,8 @@ if __name__ == '__main__':
                                          nn_type="feedforward",
                                          max_buffer_size_adv=1e6,
                                          max_buffer_size_avrg=1e6,
-                                         eval_agent_export_freq=1,
+                                         eval_agent_export_freq=3,
+                                         checkpoint_freq=1,
                                          n_traversals_per_iter=1500,
                                          n_batches_adv_training=750,
                                          n_batches_avrg_training=5000,
@@ -40,3 +41,4 @@ if __name__ == '__main__':
                   },
                   n_iterations=3)
     ctrl.run()
+    ctlr.run()
