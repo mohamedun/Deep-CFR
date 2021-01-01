@@ -2,11 +2,9 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import pickle
-# sphinx_gallery_thumbnail_number = 2
+import sys
 
-# f = open('p0_strat.pkl', 'rb')
-# raw_data = pickle.load(f)
-# f.close()
+
 def np2img(raw_data, filename):
     strat = np.zeros((13,13,3))
     for datum in raw_data.keys():
@@ -34,3 +32,4 @@ def np2img(raw_data, filename):
     ax.set_title("Action Probability 012->RBG")
     fig.tight_layout()
     plt.savefig(filename)
+

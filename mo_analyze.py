@@ -4,12 +4,20 @@ import pdb
 import time
 from os.path import dirname, abspath
 import numpy as np
+import sys
 
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 
 # These two eval agents HAVE TO come from the same training run and iteration for this analysis to make sense.
-path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
+if len(sys.argv) < 2:
+    path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
+else:
+    path_to_dcfr_eval_agent = sys.argv[1]
 
+if len(sys.argv) == 3:
+    img_name = sys.argv[2]
+else:
+    img_name = ''
 N_DECK = 52
 N_HOLE = 169 # 13 * 12 + 13
 
@@ -47,13 +55,13 @@ for hand in hands.keys():
 '''
 #----------------------------store data for p0
 import pickle
-f = open('p0_strat.pkl', 'ab')
+f = open(img_name + 'p0_strat.pkl', 'ab')
 pickle.dump(hands, f)
 f.close()
 
 #----------------------- Generate and Store Image for p0
-import plotting
-plotting.np2img(hands,'p0_strat_img.png')
+import plot_strat
+plot_strat.np2img(hands,img_name + 'p0_strat_img.png')
 
 #----------------------- Generate Data for p1
 eval_agent_dcfr = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_dcfr_eval_agent)
@@ -74,11 +82,11 @@ while len(hands) < N_HOLE:
 
 #----------------------------store data for p1
 import pickle
-f = open('p1_strat.pkl', 'ab')
+f = open(img_name + 'p1_strat.pkl', 'ab')
 pickle.dump(hands, f)
 f.close()
 #----------------------- Generate and Store Image for p1
-import plotting
-plotting.np2img(hands, 'p1_strat_img.png')
+import plot_strat
+plot_strat.np2img(hands, img_name + 'p1_strat_img.png')
 
 pdb.set_trace()
