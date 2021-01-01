@@ -35,4 +35,5 @@ if __name__ == '__main__':
                 if hole_hand not in hands:
                     hands[hole_hand] = eval_agent_dcfr.get_a_probs()
 
-print(hands)
+for hand in hands.keys():
+    print(f"for hand: {hand}, the probabilities are {hands[hand]}\n")
