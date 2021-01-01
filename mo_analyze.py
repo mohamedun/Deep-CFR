@@ -3,17 +3,15 @@
 import pdb
 import time
 from os.path import dirname, abspath
-
 import numpy as np
 
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 
 # These two eval agents HAVE TO come from the same training run and iteration for this analysis to make sense.
 path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
-#path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
-#path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_SINGLE.pkl"
 
-N_HOLE = 1326
+N_DECK = 52
+N_HOLE = N_DECK * (N_DECK-1) // 2
 
 if __name__ == '__main__':
     #Loading EvalAgents and checking if hey have same experiment name
