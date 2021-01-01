@@ -56,10 +56,7 @@ import plotting
 plotting.np2img(hands,'p0_strat_img.png')
 
 #----------------------- Generate Data for p1
-#Loading EvalAgents and checking if hey have same experiment name
 eval_agent_dcfr = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_dcfr_eval_agent)
-
-#get an env bldr from the agent and create an env
 env_bldr = eval_agent_dcfr.env_bldr
 env = env_bldr.get_new_env(is_evaluating=False)
 
