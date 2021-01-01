@@ -13,7 +13,7 @@ path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_
 #path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
 #path_to_sdcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_SINGLE.pkl"
 
-N_DECK = 13 * 4
+N_HOLE = 13 * 4 * 13 * 4 / 2
 
 if __name__ == '__main__':
     #Loading EvalAgents and checking if hey have same experiment name
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
     hands = {}
-    while len(hands) < N_DECK:
+    while len(hands) < N_HOLE:
         obs, rew, done, info = env.reset()
         eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
         for p in env.seats:
@@ -34,6 +34,6 @@ if __name__ == '__main__':
                 if hole_hand not in hands:
                     hands[hole_hand] = eval_agent_dcfr.get_a_probs()
 
-print(f"Computed {len(hands)}in {time.time()-start_time} sec")
+print(f"Computed {len(N_HOLE)} in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
