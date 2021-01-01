@@ -35,3 +35,4 @@ if __name__ == '__main__':
 print(f"Computed {N_HOLE} possible hands in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
+pdb.set_trace()
