@@ -34,6 +34,6 @@ if __name__ == '__main__':
                 if hole_hand not in hands:
                     hands[hole_hand] = eval_agent_dcfr.get_a_probs()
 
-print(f"Computed in {time.time()-start_time}")
+print(f"Computed {len(hands)}in {time.time()-start_time} sec")
 for hand in hands.keys():
     print(f"for hand: {hand}, the probabilities are {hands[hand]}")
