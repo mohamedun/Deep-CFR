@@ -29,13 +29,11 @@ if __name__ == '__main__':
         #reset the environment
         obs, rew, done, info = env.reset()
         for p in env.seats:
-            print(type(p))
-            print(env.cards2str(p.hand))
+            if p.seat_id == 0 :
+                print(env.cards2str(p.hand))
         #get state from the env and reset the agents according to state
-        eval_agent_sdcfr.reset(deck_state_dict=env.cards_state_dict())
         eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
 
         legal_actions_list = env.get_legal_actions()
         a_dist_dcfr = eval_agent_dcfr.get_a_probs()
-        a = eval_agent_sdcfr.get_action(step_env=False)[0]
         #pdb.set_trace()
