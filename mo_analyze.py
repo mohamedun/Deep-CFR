@@ -28,7 +28,7 @@ if __name__ == '__main__':
         eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
         for p in env.seats:
             if p.seat_id == 0:
-                hole_hand = str(p.hand[0])
+                hole_hand = env.cards2str(p.hand)
                 if hole_hand not in hands:
                     hands[hole_hand] = eval_agent_dcfr.get_a_probs()
 
