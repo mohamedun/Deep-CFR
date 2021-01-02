@@ -10,7 +10,7 @@ if __name__ == '__main__':
                                          max_buffer_size_adv=1e6,
                                          max_buffer_size_avrg=1e6,
                                          eval_agent_export_freq=3,
-                                         checkpoint_freq=1,
+                                         checkpoint_freq=100,
                                          n_traversals_per_iter=1500,
                                          n_batches_adv_training=750,
                                          n_batches_avrg_training=5000,
