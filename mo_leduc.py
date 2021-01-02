@@ -37,7 +37,7 @@ if __name__ == '__main__':
                                          log_verbose=False,
                                          ),
                   eval_methods={
-                      "br": 10,
+                      "br": 1,
                   },
                   n_iterations=3)
     ctrl.run()
