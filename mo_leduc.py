@@ -39,6 +39,5 @@ if __name__ == '__main__':
                   eval_methods={
                       "br": 1,
                   },
-                  n_iterations=3)
-    ctrl.run()
+                  n_iterations=4)
     ctrl.run()
