@@ -41,4 +41,4 @@ if __name__ == '__main__':
                   },
                   n_iterations=3)
     ctrl.run()
-    ctlr.run()
+    ctrl.run()
