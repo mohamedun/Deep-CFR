@@ -1,4 +1,5 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
+from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
 from PokerRL.game.games import Flop5Holdem
 from PokerRL.game.bet_sets import POT_ONLY
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
