@@ -65,7 +65,7 @@ if __name__ == '__main__':
                                          rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
-                  eval_methods={'rlbr':5},
+                  eval_methods={},
 
                   # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
                   # This repo implements alternating iters as a single iter, which is why this says 150.
