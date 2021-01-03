@@ -69,6 +69,6 @@ if __name__ == '__main__':
 
                   # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
                   # This repo implements alternating iters as a single iter, which is why this says 150.
-                  n_iterations=3,
+                  n_iterations=50,
                   )
     ctrl.run()
