@@ -74,6 +74,7 @@ while len(hands) < N_HOLE:
     obs, rew, done, info = env.reset()
     eval_agent_dcfr.reset(deck_state_dict=env.cards_state_dict())
     obs, rew, done, info = env.step(2)
+    print(env.current_player.seat_id)
     eval_agent_dcfr.notify_of_action(p_id_acted=0, action_he_did=2)
 
     hole_hand = hand2rep(env.seats[1].hand)
