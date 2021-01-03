@@ -1,17 +1,15 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
 from PokerRL.game.games import Flop5Holdem
-
+from PokerRL.game.bet_sets import POT_ONLY
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
 
 if __name__ == '__main__':
     """
-    Runs the experiment from The paper "Single Deep Counterfactual Regret Minimization" (Steinberger 2019).
-
-    Uses 24 cores.
+    Runs FHP with the same parameters as original but only 5 workers
     """
-    ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_1",
+    ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_2",
 
                                          nn_type="feedforward",  # We also support RNNs, but the paper uses FF
 
@@ -22,7 +20,7 @@ if __name__ == '__main__':
                                          # regulate exports
                                          export_each_net=False,
                                          checkpoint_freq=99999999,
-                                         eval_agent_export_freq=1,  # produces around 15GB over 150 iterations!
+                                         eval_agent_export_freq=10,  # produces around 15GB over 150 iterations!
 
                                          n_actions_traverser_samples=3,  # = external sampling in FHP
                                          n_traversals_per_iter=15000,
@@ -54,7 +52,7 @@ if __name__ == '__main__':
 
                                          # With the H2H evaluator, these two are evaluated against eachother.
                                          eval_modes_of_algo=(
-                                             EvalAgentDeepCFR.EVAL_MODE_AVRG_NET, EvalAgentDeepCFR.EVAL_MODE_SINGLE
+                                             EvalAgentDeepCFR.EVAL_MODE_AVRG_NET,
                                          ),
 
                                          log_verbose=True,
@@ -63,12 +61,10 @@ if __name__ == '__main__':
                                          # enables simplified obs. Default works also for 3+ players
                                          use_simplified_headsup_obs=True,
 
-                                         h2h_args=H2HArgs(
-                                             n_hands=1500000,  # this is per seat; so in total 3M hands per eval
-                                         ),
+                                         rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
-                  eval_methods={"h2h": 15},
+                  eval_methods={'rlbr':5},
 
                   # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
                   # This repo implements alternating iters as a single iter, which is why this says 150.
