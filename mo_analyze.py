@@ -10,7 +10,7 @@ from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 
 # These two eval agents HAVE TO come from the same training run and iteration for this analysis to make sense.
 if len(sys.argv) < 2:
-    path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_AVRG_NET.pkl"
+    path_to_dcfr_eval_agent = dirname(abspath(__file__)) + "/trained_agents/Example_FHP_SINGLE.pkl"
 else:
     path_to_dcfr_eval_agent = sys.argv[1]
 
