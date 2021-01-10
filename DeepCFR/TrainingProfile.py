@@ -39,6 +39,7 @@ class TrainingProfile(TrainingProfileBase):
                  DISTRIBUTED=False,
                  CLUSTER=False,
                  DEBUGGING=False,
+                 redis_head_adr=None,
 
                  # ------ Env
                  game_cls=DiscretizedNLLeduc,
@@ -172,6 +173,7 @@ class TrainingProfile(TrainingProfileBase):
             DEBUGGING=DEBUGGING,
             DISTRIBUTED=DISTRIBUTED,
             CLUSTER=CLUSTER,
+            redis_head_adr=redis_head_adr,
             device_inference=device_inference,
             local_crayon_server_docker_address=local_crayon_server_docker_address,
 

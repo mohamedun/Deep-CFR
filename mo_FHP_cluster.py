@@ -11,6 +11,7 @@ if __name__ == '__main__':
     Runs FHP with the same parameters as original but only 20 workers
     """
     ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_cluster",
+                                         redis_head_adr="auto",
 
                                          nn_type="feedforward",  # We also support RNNs, but the paper uses FF
 
