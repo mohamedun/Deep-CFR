@@ -8,7 +8,7 @@ from DeepCFR.workers.driver.Driver import Driver
 
 if __name__ == '__main__':
     """
-    Runs FHP with the same parameters as original but only 5 workers
+    Runs FHP with the same parameters as original with 20 workers
     """
     ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_2",
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
                                          DISTRIBUTED=True,
                                          CLUSTER=False,
-                                         n_learner_actor_workers=5,  # 20 workers
+                                         n_learner_actor_workers=20,  # 20 workers
 
                                          # regulate exports
                                          export_each_net=False,
