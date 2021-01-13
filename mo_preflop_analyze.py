@@ -53,11 +53,9 @@ while len(hands) < N_HOLE:
     if hole_hand not in hands:
         hands[hole_hand] = curr_eval_agent.get_a_probs()
 
-'''
+
 print(f"Computed {N_HOLE} possible hands in {time.time()-start_time} sec")
-for hand in hands.keys():
-    print(f"for hand: {hand}, the probabilities are {hands[hand]}")
-'''
+
 #----------------------------Store Data
 import pickle
 f = open(history + '_strat.pkl', 'ab')
