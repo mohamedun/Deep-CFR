@@ -41,7 +41,7 @@ start_time = time.time()
 hands = {}
 while len(hands) < N_HOLE:
     #Reset env and EvalAgent
-    obs, rew, done, info = env.reset()
+    env.reset()
     curr_eval_agent.reset(deck_state_dict=env.cards_state_dict())
     #Act
     for c in history:
