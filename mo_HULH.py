@@ -16,16 +16,16 @@ if __name__ == '__main__':
 
                                          DISTRIBUTED=True,
                                          CLUSTER=False,
-                                         n_learner_actor_workers=5,  # 20 workers
+                                         n_learner_actor_workers=40,  # 20 workers
 
                                          # regulate exports
                                          export_each_net=False,
                                          checkpoint_freq=99999999,
-                                         eval_agent_export_freq=1,  # produces around 15GB over 150 iterations!
+                                         eval_agent_export_freq=5,
 
                                          n_actions_traverser_samples=3,  # = external sampling in FHP
-                                         n_traversals_per_iter=15000,
-                                         n_batches_adv_training=4000,
+                                         n_traversals_per_iter=500,
+                                         n_batches_adv_training=2000,
                                          mini_batch_size_adv=512,  # *20=10240
                                          init_adv_model="random",
 
@@ -38,22 +38,9 @@ if __name__ == '__main__':
                                          lr_adv=0.001,
                                          lr_patience_adv=99999999,  # No lr decay
 
-                                         n_batches_avrg_training=20000,
-                                         mini_batch_size_avrg=1024,  # *20=20480
-                                         init_avrg_model="random",
-
-                                         use_pre_layers_avrg=True,
-                                         n_cards_state_units_avrg=192,
-                                         n_merge_and_table_layer_units_avrg=64,
-                                         n_units_final_avrg=64,
-
-                                         max_buffer_size_avrg=2e6,
-                                         lr_avrg=0.001,
-                                         lr_patience_avrg=99999999,  # No lr decay
-
                                          # With the H2H evaluator, these two are evaluated against eachother.
                                          eval_modes_of_algo=(
-                                             EvalAgentDeepCFR.EVAL_MODE_AVRG_NET, EvalAgentDeepCFR.EVAL_MODE_SINGLE
+                                            EvalAgentDeepCFR.EVAL_MODE_SINGLE,
                                          ),
 
                                          log_verbose=True,
@@ -61,16 +48,10 @@ if __name__ == '__main__':
 
                                          # enables simplified obs. Default works also for 3+ players
                                          use_simplified_headsup_obs=True,
-
-                                         h2h_args=H2HArgs(
-                                             n_hands=1500000,  # this is per seat; so in total 3M hands per eval
                                          ),
-                                         ),
-                  # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
                   eval_methods={},
 
-                  # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
-                  # This repo implements alternating iters as a single iter, which is why this says 150.
-                  n_iterations=3,
+
+                  n_iterations=50,
                   )
     ctrl.run()
