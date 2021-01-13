@@ -13,7 +13,7 @@ path_to_eval_agent = sys.argv[1]
 #History is represented by a string r for raise, c for call/check, f for fold.
 str_to_action = {'r': Poker.BET_RAISE,
                  'c': Poker.CHECK_CALL,
-                 'f': Poker.Fold}
+                 'f': Poker.FOLD}
 history = sys.argv[2]
 
 N_DECK = 52
