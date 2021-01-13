@@ -64,4 +64,4 @@ f.close()
 
 #----------------------- Generate and Store Image
 import plot_strat
-plot_strat.np2img(hands, history + '_strat_img.png')
+plot_strat.np2img(hands, history + path_to_eval_agent + '_strat_img.png')
