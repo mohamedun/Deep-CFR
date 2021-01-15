@@ -8,8 +8,6 @@ if __name__ == '__main__':
     ctrl = Driver(t_prof=TrainingProfile(name="MO_LEDUC_EXPLOITABILITY",
                                          nn_type="feedforward",
 
-                                         DISTRIBUTED=True,
-                                         log_verbose=True,
                                          n_learner_actor_workers=5,
 
                                          eval_agent_export_freq=3,
@@ -33,7 +31,8 @@ if __name__ == '__main__':
                                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                                          ),
 
-e,
+                                         DISTRIBUTED=True,
+                                         log_verbose=True,
                                          ),
                   eval_methods={
                   },

@@ -13,6 +13,7 @@ mo_FHP_3:
 mo_FHP_cluster:
 
 mo_leduc:
+- To explore checkpointing and other features
 
 mo_HULH:
 - everything as mo_FHP_2 except
