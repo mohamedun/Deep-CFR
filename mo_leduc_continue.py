@@ -36,6 +36,6 @@ if __name__ == '__main__':
                                          ),
                   eval_methods={
                   },
-                  n_iterations=4, name_to_import='~/poker_ai_data/checkpoint/MO_LEDUC_EXPLOITABILITY/4', iteration_to_import=4)
+                  n_iterations=4, name_to_import='MO_LEDUC_EXPLOITABILITY', iteration_to_import=4)
     ctrl.run()
     pdb.set_trace()
