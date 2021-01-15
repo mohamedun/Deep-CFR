@@ -31,7 +31,7 @@ if __name__ == '__main__':
                                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                                          ),
 
-                                         DISTRIBUTED=True,
+                                         DISTRIBUTED=False,
                                          log_verbose=True,
                                          ),
                   eval_methods={
