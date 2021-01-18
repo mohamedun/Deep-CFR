@@ -2,9 +2,11 @@
 
 import sys
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
-path_to_agent = sys.argv[1]
+method = sys.argv[1]
+path_to_agent = sys.argv[2]
 agent_to_eval = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_agent)
 
+#------- Chnage here to dist/LBR etc
 from DeepCFR.workers.chief.local import Chief
 from PokerRL.eval.br.LocalBRMaster import LocalBRMaster as BRMaster
 
