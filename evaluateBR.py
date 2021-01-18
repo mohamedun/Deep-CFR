@@ -3,7 +3,7 @@
 import sys
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 path_to_agent = sys.argv[1]
-agent_to_evaluate = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_agent)
+agent_to_eval = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_agent)
 
 from DeepCFR.workers.driver.Driver import Driver
 
