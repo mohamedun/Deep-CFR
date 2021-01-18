@@ -191,3 +191,17 @@ class Chief(_ChiefBase):
                           "rb") as pkl_file:
                     state = pickle.load(pkl_file)
                     self._strategy_buffers[p_id].load_state_dict(state["strat_buffer"])
+
+    def add_scalar(self, exp_name, graph_name, step, value):
+        """
+        Adds one datapoint to a 2D graph of an experiment in the LogBuffer.
+
+        Args:
+            exp_name (str): Name of the new experiment
+            graph_name (str): Name of the graph into which to plot
+            step (int): Timestep (x-axis) of the datapoint
+            value (float): Value to plot at timestep ""step"".
+        """
+        self._log_buf.add_scalar(exp_name=exp_name, graph_name=graph_name, step=step, value=value)
+        print(exp_name, graph_name, step, value)
+
