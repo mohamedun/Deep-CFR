@@ -7,8 +7,8 @@ path_to_agent = sys.argv[2]
 agent_to_eval = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_agent)
 
 from DeepCFR.workers.driver.Driver import Driver
-from DeepCFR.workers.chief.dist import Chief
-from PokerRL.eval.br.DistBRMaster import DistBRMaster as BRMaster
+from DeepCFR.workers.chief.local import Chief
+from PokerRL.eval.br.LocalBRMaster import LocalBRMaster as BRMaster
 
 eval_master = BRMaster(t_prof=agent_to_eval.t_prof,
                        chief_handle=Chief(t_prof=agent_to_eval.t_prof),
