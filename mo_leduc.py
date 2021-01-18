@@ -34,7 +34,7 @@ if __name__ == '__main__':
                                          DISTRIBUTED=False,
                                          log_verbose=True,
                                          ),
-                  eval_methods={
+                  eval_methods={'br': 1,
                   },
                   n_iterations=4)
     ctrl.run()
