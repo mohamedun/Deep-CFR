@@ -12,7 +12,7 @@ from PokerRL.eval.br.LocalBRMaster import LocalBRMaster as BRMaster
 
 eval_master = BRMaster(t_prof=agent_to_eval.t_prof,
                        chief_handle=Chief(t_prof=agent_to_eval.t_prof),
-                       eval_agent_cls= EvalAgentDeepCFR)
+                       eval_agent_cls=EvalAgentDeepCFR)
 
 eval_master._eval_agent = agent_to_eval
 eval_master.evaluate(iter_nr=0)
