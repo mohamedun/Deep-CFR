@@ -203,5 +203,6 @@ class Chief(_ChiefBase):
             value (float): Value to plot at timestep ""step"".
         """
         self._log_buf.add_scalar(exp_name=exp_name, graph_name=graph_name, step=step, value=value)
-        print(exp_name, graph_name, step, value)
+        print("experiment name/graph name:", exp_name, graph_name)
+        print("step, value:", step, value)
 
