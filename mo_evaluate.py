@@ -62,3 +62,25 @@ ctrl.eval_masters['lbr'][0].evaluate(0)
 #
 # ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
 # ctrl.eval_masters['lbr'][0].evaluate(0)
+'''
+locallbrmaster calls update weights on each worker with the weights it has gotten from chief
+each worker calls update weights on its agent wrapper
+the agent wrapper contains an EvalAgent, at the end the EvalAgent.update_weights gets called
+with the weights that the master got from chief using _pull*strat 
+want: put weights in lbrmaster in the same format that it gets from pull_current_strat_from_chief...
+which calls chief.pull_current_eval_strategy([n,n])
+
+so compare current_eval_strategy with store to disk 
+for single, storing has everything in chief._strategy_buffers
+
+strategy for SINGLE: update _strategy_buffers in chief from eval_agent._strategy_buffers
+then pull it using the chief method, then update the LBR master with these update_weights
+
+
+LBRMaster_inst.weights_for_eval_agents = self.pull_current_strat_from_chief()
+
+EvaluatorMasterBase_inst.pull_current_strat_from_chief()
+w, info = chief_handle.pull_current_eval_strategy
+return w
+'''
+

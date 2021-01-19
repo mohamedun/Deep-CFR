@@ -1,5 +1,6 @@
 from PokerRL.game.games import StandardLeduc
-
+from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
+from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
@@ -33,8 +34,12 @@ if __name__ == '__main__':
 
                                          DISTRIBUTED=False,
                                          log_verbose=True,
+                                         rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY)
+                                         #lbr_args = LBRArgs()
                                          ),
                   eval_methods={'br': 1,
+                                'rlbr': 1,
+                                #'lbr': 1,
                   },
                   n_iterations=4)
     ctrl.run()
