@@ -1,6 +1,7 @@
 #usage: evaluateBR.py path_to_agent
 
 import sys
+import pdb
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
 method = sys.argv[1]
 path_to_agent = sys.argv[2]
@@ -40,8 +41,11 @@ agent_prof = agent_to_eval.t_prof
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
 ctrl = Driver(agent_prof, eval_methods={'br': 1})
-import pdb
-pdb.set_trace()
-ctrl.eval_master['br']._eval_agent = agent_to_eval
-ctrl.eval_master['br'].evaluate(0)
-#ctrl.evaluate()
+
+ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
+ctrl.eval_masters['br'][0].evaluate(0)
+
+ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
+
+ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
+ctrl.eval_masters['lbr'][0].evaluate(0)
