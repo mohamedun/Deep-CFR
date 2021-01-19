@@ -42,4 +42,6 @@ from DeepCFR.workers.driver.Driver import Driver
 ctrl = Driver(agent_prof, eval_methods={'br': 1})
 import pdb
 pdb.set_trace()
-ctrl.evaluate()
+ctrl.eval_master['br']._eval_agent = agent_to_eval
+ctrl.eval_master['br'].evaluate(0)
+#ctrl.evaluate()
