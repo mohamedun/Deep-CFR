@@ -45,6 +45,7 @@ ctrl = Driver(agent_prof, eval_methods={'br': 1})
 ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
 ctrl.eval_masters['br'][0].evaluate(0)
 
+agent_prof.module_args['lbr'] = LBRArgs()
 ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
 
 ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
