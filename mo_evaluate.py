@@ -32,6 +32,7 @@ eval_master = LBRMaster(t_prof=agent_to_eval.t_prof,
                                chief_handle=lbr_chief)
 num_workers = 3
 LBR_workers = [LBRWorker(t_prof=agent_prof, chief_handle=lbr_chief, eval_agent_cls=EvalAgentDeepCFR) for _ in range(num_workers)]
-eval_master.set_worker_handles(LBR_workers)
+eval_master.set_worker_handles(*LBR_workers)
 #
-eval_master.evaluate()
+
+eval_master.evaluate(0)
