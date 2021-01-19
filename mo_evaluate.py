@@ -46,7 +46,7 @@ from PokerRL.eval.lbr.LBRArgs import LBRArgs
 agent_prof.module_args['lbr'] = LBRArgs()
 ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
 ctrl.chief_handle._strategy_buffers = agent_to_eval._strategy_buffers
-w = ctrl.chief_handle.pull_current_eval_strategy([0, 0])
+w = ctrl.chief_handle._pull_single_eval_strat([0, 0])
 
 ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
 ctrl.eval_masters['lbr'][0].weights_for_eval_agent = w
