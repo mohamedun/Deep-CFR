@@ -42,6 +42,8 @@ agent_prof = agent_to_eval.t_prof
 
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
+from PokerRL.eval.lbr.LBRArgs import LBRArgs
+agent_prof.module_args['lbr'] = LBRArgs()
 ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
 ctrl.chief_handle._strategy_buffers = agent_to_eval._strategy_buffers
 w = ctrl.chief_handle.pull_current_eval_strategy([0, 0])
