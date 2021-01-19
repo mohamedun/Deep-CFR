@@ -41,12 +41,19 @@ agent_prof = agent_to_eval.t_prof
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
 ctrl = Driver(agent_prof, eval_methods={'br': 1})
-
-ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
+state = agent_to_eval._state_dict()
+print(state)
+agent2 = EvalAgentDeepCFR(t_prof=state['t_prof'])
+agent2.load_state(state=state)
+ctrl.eval_masters['br'][0]._eval_agent = agent2
 ctrl.eval_masters['br'][0].evaluate(0)
 
-agent_prof.module_args['lbr'] = LBRArgs()
-ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
+# ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
+# ctrl.eval_masters['br'][0].evaluate(0)
 
-ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
-ctrl.eval_masters['lbr'][0].evaluate(0)
+
+# agent_prof.module_args['lbr'] = LBRArgs()
+# ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
+#
+# ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
+# ctrl.eval_masters['lbr'][0].evaluate(0)
