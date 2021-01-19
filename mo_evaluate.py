@@ -25,10 +25,12 @@ print(ray.get(eval_master.set_agent.remote(2)))
 #-----------Local LBR
 from PokerRL.eval.lbr.LocalLBRMaster import LocalLBRMaster as LBRMaster
 from PokerRL.eval.lbr.LocalLBRWorker import LocalLBRWorker as LBRWorker
+from PokerRL.eval.lbr.LBRArgs import LBRArgs
+agent_prof.module_args['lbr'] = LBRArgs()
 lbr_chief = Chief(t_prof=agent_prof)
 eval_master = LBRMaster(t_prof=agent_to_eval.t_prof,
                                chief_handle=lbr_chief)
-num_wokers = 3
+num_workers = 3
 LBR_workers = [LBRWorker(t_prof=agent_prof, chief_handle=lbr_chief, eval_agent_cls=EvalAgentDeepCFR) for _ in range(num_workers)]
 eval_master.set_worker_handles(LBR_workers)
 #
