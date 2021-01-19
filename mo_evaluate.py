@@ -42,7 +42,7 @@ agent_prof = agent_to_eval.t_prof
 
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
-ctrl = Driver(agent_prof, eval_methods={'br': 1})
+ctrl = Driver(agent_prof, eval_methods={'lbr': 1})
 ctrl.chief_handle._strategy_buffers = agent_to_eval._strategy_buffers
 w = ctrl.chief_handle.pull_current_eval_strategy([0, 0])
 
