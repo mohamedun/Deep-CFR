@@ -43,14 +43,12 @@ agent_prof = agent_to_eval.t_prof
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
 ctrl = Driver(agent_prof, eval_methods={'br': 1})
+ctrl.chief_handle._strategy_buffers = agent_to_eval._strategy_buffers
+w = ctrl.chief_handle.pull_current_eval_strategy([0, 0])
 
-agent2 = EvalAgentDeepCFR(t_prof=agent_prof)
-agent2.load_state_dict(state=state_from_disk)
-w = {state_from_disk['mode']: state_from_disk['agent']}
-agent2.update_weights(w)
-pdb.set_trace()
-ctrl.eval_masters['br'][0]._eval_agent = agent2
-ctrl.eval_masters['br'][0].evaluate(0)
+ctrl.eval_masters['lbr'][0]._eval_agent = agent_to_eval
+ctrl.eval_masters['lbr'][0].weights_for_eval_agent = w
+ctrl.eval_masters['lbr'][0].evaluate(0)
 
 
 # ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
