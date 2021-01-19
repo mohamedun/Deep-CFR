@@ -3,9 +3,11 @@
 import sys
 import pdb
 from DeepCFR.EvalAgentDeepCFR import EvalAgentDeepCFR
+from PokerRL.util.file_util import do_pickle, load_pickle
 method = sys.argv[1]
 path_to_agent = sys.argv[2]
 agent_to_eval = EvalAgentDeepCFR.load_from_disk(path_to_eval_agent=path_to_agent)
+state_from_disk = load_pickle(path=path_to_agent)
 agent_prof = agent_to_eval.t_prof
 
 # #------- Dist BR
@@ -41,13 +43,13 @@ agent_prof = agent_to_eval.t_prof
 #-------- Driver Approach
 from DeepCFR.workers.driver.Driver import Driver
 ctrl = Driver(agent_prof, eval_methods={'br': 1})
-state = agent_to_eval._state_dict()
-print(state)
-agent2 = EvalAgentDeepCFR(t_prof=state['t_prof'])
-agent2.load_state(state=state)
+
+print(state_from_disk.keys())
+agent2 = EvalAgentDeepCFR(t_prof=agent_prof)
+agent2.load_state_dict(state=state_from_disk)
 ctrl.eval_masters['br'][0]._eval_agent = agent2
 ctrl.eval_masters['br'][0].evaluate(0)
-
+pdb.set_trace()
 # ctrl.eval_masters['br'][0]._eval_agent = agent_to_eval
 # ctrl.eval_masters['br'][0].evaluate(0)
 
