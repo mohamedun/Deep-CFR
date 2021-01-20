@@ -13,7 +13,7 @@ if __name__ == '__main__':
                                          n_learner_actor_workers=5,
 
                                          eval_agent_export_freq=3,
-                                         checkpoint_freq=1,
+                                         checkpoint_freq=3,
 
                                          max_buffer_size_adv=1e6,
                                          n_traversals_per_iter=500,
@@ -33,15 +33,24 @@ if __name__ == '__main__':
                                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                                          ),
 
-                                         DISTRIBUTED=False,
+                                         DISTRIBUTED=True,
                                          log_verbose=True,
-                                         rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY)
+                                         rl_br_args=RLBRArgs(rlbr_bet_set=None,
+                                                             n_hands_each_seat=200,
+                                                             n_workers=1,
+                                                             # Training
+                                                             DISTRIBUTED=False,
+                                                             n_iterations=100,
+                                                             play_n_games_per_iter=50,
+                                                             # The DDQN
+                                                             batch_size=512,
+                                                             )
                                          #lbr_args = LBRArgs()
                                          ),
                   eval_methods={'br': 1,
                                 'rlbr': 1,
                                 #'lbr': 1,
                   },
-                  n_iterations=4)
+                  n_iterations=12)
     ctrl.run()
     pdb.set_trace()
