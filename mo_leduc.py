@@ -7,10 +7,8 @@ from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
 import pdb
 if __name__ == '__main__':
-    ctrl = Driver(t_prof=TrainingProfile(name="MO_LEDUC_EXPLOITABILITY",
+    ctrl = Driver(t_prof=TrainingProfile(name="MO_LEDUC_EVAL",
                                          nn_type="feedforward",
-
-                                         n_learner_actor_workers=5,
 
                                          eval_agent_export_freq=3,
                                          checkpoint_freq=3,
@@ -33,7 +31,7 @@ if __name__ == '__main__':
                                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                                          ),
 
-                                         DISTRIBUTED=True,
+                                         DISTRIBUTED=False,
                                          log_verbose=True,
                                          rl_br_args=RLBRArgs(rlbr_bet_set=None,
                                                              n_hands_each_seat=200,

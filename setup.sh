@@ -12,4 +12,6 @@ pip install requests
 conda install pytorch=0.4.1 -c pytorch -y
 pip install PokerRL[distributed]
 
+# My installation
+pip install matplotlib ipython pandas
 git clone https://github.com/mohamedun/Deep-CFR.git
