@@ -5,7 +5,7 @@ import json
 import pdb
 
 def logs_to_dfs(exp_name, iter_number):
-    path_name_json = '/home/ec2-user/poker_ai_data/logs/' + exp_name + '/' + str(iter_number) + '/as_json/logs.json'
+    path_name_json = '/home/ec2-user/poker_ai_data/logs/' + exp_name + '/' + str(iter_number-1) + '/as_json/logs.json'
 
     def list_to_dict(input_list):
         my_dict = {}
