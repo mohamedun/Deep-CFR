@@ -38,14 +38,15 @@ def new_tp(i):
                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                          ),
 
-                         DISTRIBUTED=False,
+                         DISTRIBUTED=True,
                          log_verbose=True,
                          rl_br_args=RLBRArgs(rlbr_bet_set=None,
-                                             n_hands_each_seat=5*i,
-                                             n_workers=1,
+
+                                             #n_hands_each_seat=5*i,
+                                             n_workers=5,
                                              # Training
-                                             DISTRIBUTED=False,
-                                             n_iterations=100,
+                                             DISTRIBUTED=True,
+                                             n_iterations=1000*i,
                                              play_n_games_per_iter=50,
                                              # The DDQN
                                              batch_size=512,
@@ -66,6 +67,6 @@ for i in range(n_iter):
     diff = RLBR_df - BR_df
 
     # append to a dict hp -> measure
-    hp_measure[5 * i] = diff.mean()['Evaluation/MA_per_G']
+    hp_measure[5 * i] = (diff.mean()['Evaluation/MA_per_G'], diff.std()['Evaluation/MA_per_G'])
 
 pdb.set_trace()
