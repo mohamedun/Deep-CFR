@@ -31,7 +31,9 @@ with open(path_name_json) as f:
 dfs = {}
 for x in full.keys():
     y = fix_format(full[x])
-    df = pd.read_json(path_or_buf=y, orient='columns')
+    df = pd.DataFrame.from_dict(data=y, orient='columns')
+    df.index = df.index.map(int)
+    df.sort_index(inpace=True)
     dfs[x] = df
 
 pdb.set_trace()
