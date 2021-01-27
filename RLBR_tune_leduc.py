@@ -33,7 +33,7 @@ for x in full.keys():
     y = fix_format(full[x])
     df = pd.DataFrame.from_dict(data=y, orient='columns')
     df.index = df.index.map(int)
-    df.sort_index(inpace=True)
+    df.sort_index(inplace=True)
     dfs[x] = df
 
 pdb.set_trace()
