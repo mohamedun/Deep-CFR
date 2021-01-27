@@ -16,7 +16,7 @@ def list_to_dict(input_list):
     for a in input_list:
         akeys = a.keys()
         for t in akeys:
-            mydict[t] = a[t]
+            my_dict[t] = a[t]
     return my_dict
 
 def fix_format(inp):
