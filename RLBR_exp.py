@@ -56,7 +56,7 @@ def new_tp(i):
 
 
 for i in range(n_iter):
-    TP = new_tp()
+    TP = new_tp(i)
     ctrl = Driver(t_prof=TP, eval_methods={'br': 1, 'rlbr': 1}, n_iterations=driver_iterations)
     ctrl.run()
     dfs = logs_util.logs_to_dfs(exp_name=exp_name, iter_number=driver_iterations)
