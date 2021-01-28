@@ -42,12 +42,15 @@ if __name__ == '__main__':
                                                              play_n_games_per_iter=50,
                                                              # The DDQN
                                                              batch_size=512,
-                                                             )
-                                         #lbr_args = LBRArgs()
+                                                             ),
+                                         lbr_args=LBRArgs(n_lbr_hands_per_seat=30000,
+                                                          n_parallel_lbr_workers=10,
+                                                          DISTRIBUTED=False,
+                                                          ),
                                          ),
                   eval_methods={'br': 1,
-                                'rlbr': 1,
-                                #'lbr': 1,
+                                #'rlbr': 1,
+                                'lbr': 1,
                   },
                   n_iterations=12)
     ctrl.run()
