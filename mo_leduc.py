@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
                                          eval_agent_export_freq=3,
                                          checkpoint_freq=3,
+                                         n_learner_actor_workers=5,
 
                                          max_buffer_size_adv=1e6,
                                          n_traversals_per_iter=500,
@@ -31,7 +32,7 @@ if __name__ == '__main__':
                                              EvalAgentDeepCFR.EVAL_MODE_SINGLE,  # SD-CFR
                                          ),
 
-                                         DISTRIBUTED=False,
+                                         DISTRIBUTED=True,
                                          log_verbose=True,
                                          rl_br_args=RLBRArgs(rlbr_bet_set=None,
                                                              n_hands_each_seat=200,
@@ -44,8 +45,8 @@ if __name__ == '__main__':
                                                              batch_size=512,
                                                              ),
                                          lbr_args=LBRArgs(n_lbr_hands_per_seat=30000,
-                                                          n_parallel_lbr_workers=10,
-                                                          DISTRIBUTED=False,
+                                                          n_parallel_lbr_workers=20,
+                                                          DISTRIBUTED=True,
                                                           ),
                                          ),
                   eval_methods={'br': 1,
