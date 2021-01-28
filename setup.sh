@@ -10,7 +10,7 @@ conda create -n PokerAI python=3.6 -y
 source activate PokerAI
 pip install requests
 conda install pytorch=0.4.1 -c pytorch -y
-pip install PokerRL[distributed]
+pip install -e git+https://github.com/mohamedun/PokerRL.git#egg=PokerRL[distributed]
 
 # My installation
 pip install matplotlib ipython pandas

@@ -46,7 +46,7 @@ def new_tp(i):
                                              n_workers=5,
                                              # Training
                                              DISTRIBUTED=True,
-                                             n_iterations=1000*i,
+                                             n_iterations=1000*(i+1),
                                              play_n_games_per_iter=50,
                                              # The DDQN
                                              batch_size=512,
