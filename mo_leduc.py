@@ -1,4 +1,5 @@
 from PokerRL.game.games import StandardLeduc
+from PokerRL.game.games import BigLeduc
 from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
 from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from PokerRL.game.bet_sets import POT_ONLY
@@ -7,7 +8,7 @@ from DeepCFR.TrainingProfile import TrainingProfile
 from DeepCFR.workers.driver.Driver import Driver
 import pdb
 if __name__ == '__main__':
-    ctrl = Driver(t_prof=TrainingProfile(name="MO_LEDUC_EVAL",
+    ctrl = Driver(t_prof=TrainingProfile(name="MO_LEDUC_BigLeduc_LBR",
                                          nn_type="feedforward",
 
                                          eval_agent_export_freq=3,
@@ -19,7 +20,7 @@ if __name__ == '__main__':
                                          n_batches_adv_training=250,
                                          mini_batch_size_adv=2048,
 
-                                         game_cls=StandardLeduc,
+                                         game_cls=BigLeduc,
 
                                          n_units_final_adv=64,
                                          n_merge_and_table_layer_units_adv=64,
@@ -45,7 +46,7 @@ if __name__ == '__main__':
                                                              batch_size=512,
                                                              ),
                                          lbr_args=LBRArgs(n_lbr_hands_per_seat=30000,
-                                                          n_parallel_lbr_workers=20,
+                                                          n_parallel_lbr_workers=10,
                                                           DISTRIBUTED=True,
                                                           ),
                                          ),
