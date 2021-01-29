@@ -1,5 +1,6 @@
 from PokerRL.eval.head_to_head.H2HArgs import H2HArgs
 from PokerRL.eval.rl_br.RLBRArgs import RLBRArgs
+from PokerRL.eval.lbr.LBRArgs import LBRArgs
 from PokerRL.game.games import Flop5Holdem
 from NewGames import ModFlop5Holdem
 from PokerRL.game.bet_sets import POT_ONLY
@@ -11,7 +12,7 @@ if __name__ == '__main__':
     """
     Runs FHP with the same parameters as original with 40 workers and LBR every step
     """
-    ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_3",
+    ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_3x",
 
                                          nn_type="feedforward",  # We also support RNNs, but the paper uses FF
 
@@ -45,7 +46,7 @@ if __name__ == '__main__':
                                          ),
 
                                          log_verbose=True,
-                                         game_cls=ModFlop5Holdem,
+                                         game_cls=Flop5Holdem,
 
                                          # enables simplified obs. Default works also for 3+ players
                                          use_simplified_headsup_obs=True,
