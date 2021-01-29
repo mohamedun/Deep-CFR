@@ -9,7 +9,7 @@ from DeepCFR.workers.driver.Driver import Driver
 
 if __name__ == '__main__':
     """
-    Runs FHP with the same parameters as original with 40 workers
+    Runs FHP with the same parameters as original with 40 workers and LBR every step
     """
     ctrl = Driver(t_prof=TrainingProfile(name="MO_FHP_3",
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
                                          # regulate exports
                                          export_each_net=False,
-                                         checkpoint_freq=99999999,
+                                         checkpoint_freq=2,
                                          eval_agent_export_freq=10,  # produces around 15GB over 150 iterations!
 
                                          n_actions_traverser_samples=3,  # = external sampling in FHP
@@ -51,9 +51,14 @@ if __name__ == '__main__':
                                          use_simplified_headsup_obs=True,
 
                                          rl_br_args=RLBRArgs(rlbr_bet_set=POT_ONLY, n_iterations=2000),
+                                         lbr_args=LBRArgs(n_lbr_hands_per_seat=30000,
+                                                          n_parallel_lbr_workers=10,
+                                                          DISTRIBUTED=True,
+                                                          ),
                                          ),
                   # Evaluate Head-to-Head every 15 iterations of both players (= every 30 alternating iterations)
-                  eval_methods={},
+                  eval_methods={'lbr': 1,
+                                },
 
                   # 150 = 300 when 2 viewing alternating iterations as 2 (as usually done).
                   # This repo implements alternating iters as a single iter, which is why this says 150.
